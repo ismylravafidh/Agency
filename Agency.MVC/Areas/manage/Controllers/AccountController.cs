@@ -51,6 +51,7 @@ namespace Agency.MVC.Areas.manage.Controllers
                 ModelState.AddModelError(String.Empty, "Username Or Email or Password Error");
                 return View();
             }
+           await _signInManager.SignInAsync(user,true);
             return RedirectToAction(nameof(Index), "Home");
         }
         public IActionResult Register()
